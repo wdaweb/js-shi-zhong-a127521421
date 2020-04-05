@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+<link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
 <style>
     .background {
         position: fixed;
@@ -71,6 +72,15 @@
         transform-origin: right center;
         box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
     }
+
+    #number {
+        font-family: 'Press Start 2P';
+        position: absolute;
+        top: 65%;
+        left: 38%;
+        color: white;
+        font-size: 50px;
+    }
 </style>
 
 <body>
@@ -83,16 +93,19 @@
         <span id="minute"></span>
         <span id="second"></span>
     </span>
+    <p id="number"></p>
     <script>
         const hour = document.getElementById("hour");
         const minute = document.getElementById("minute");
         const second = document.getElementById("second");
+        const number = document.getElementById("number");
 
         const setDate = () => {
             const now = new Date();
             hour.style.transform = `rotate(${now.getHours() * 30 + 90}deg)`;
             minute.style.transform = `rotate(${now.getMinutes() * 6 + 90}deg)`;
             second.style.transform = `rotate(${now.getSeconds() * 6 + 90}deg)`;
+            number.innerText = `${now.getHours()}:${now.getMinutes()}:${now.getSeconds()}`;
         }
         setDate();
         setInterval(setDate, 1000);
